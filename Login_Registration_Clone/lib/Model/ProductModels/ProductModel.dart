@@ -2,8 +2,8 @@ class ProductModel {
   int? productId;
   String? productName;
   String? productDiscription;
-  int? productPrice;
-  int? sellerDiscount;
+  double? productPrice;
+  double? sellerDiscount;
   String? sellerName;
   String? productCategories;
   ProductDetails? productDetails;
@@ -17,6 +17,8 @@ class ProductModel {
         this.sellerName,
         this.productCategories,
         this.productDetails});
+
+
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     productId = json['productId'];
@@ -51,8 +53,8 @@ class ProductDetails {
   int? id;
   int? availableStock;
   String? sellerName;
-  int? sellingPrice;
-  int? costPrice;
+  double? sellingPrice;
+  double? costPrice;
 
   ProductDetails(
       {this.id,

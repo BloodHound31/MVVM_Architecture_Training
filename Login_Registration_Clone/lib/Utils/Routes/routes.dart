@@ -3,8 +3,10 @@ import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Home_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Login_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Registration_Page.dart';
+import 'package:login_registration_clone/View/ProductsView/ProductsListPage.dart';
 
 import '../../View/Login_SignUp_View/Password_Change.dart';
+import '../../View/ProductsView/CartPageView.dart';
 
 class Routes{
 
@@ -20,6 +22,10 @@ class Routes{
         return MaterialPageRoute(builder: (BuildContext context) => const Registration());
       case RouteNames.changePasswordRoute:
         return MaterialPageRoute(builder: (BuildContext context) => const ChangePassword());
+      case RouteNames.productListRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const ProductList());
+      case RouteNames.cartPageRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const CartPage());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(
