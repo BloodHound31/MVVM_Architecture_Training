@@ -11,4 +11,10 @@ class RouteNames{
   static const String productListRoute = 'ProductList';
 
   static const String cartPageRoute = 'CartList';
+
+  static const String checkoutPageRoute = 'CheckOut';
+
+  static const String orderListRoute = 'OrderList';
+
+  static const String orderSummaryRoute = 'OrderSummary';
 }

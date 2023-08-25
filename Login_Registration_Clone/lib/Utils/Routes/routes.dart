@@ -3,9 +3,12 @@ import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Home_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Login_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Registration_Page.dart';
+import 'package:login_registration_clone/View/OrderView/order_summary_view.dart';
+import 'package:login_registration_clone/View/ProductsView/CheckOutPageView.dart';
 import 'package:login_registration_clone/View/ProductsView/ProductsListPage.dart';
 
 import '../../View/Login_SignUp_View/Password_Change.dart';
+import '../../View/OrderView/order_list_view.dart';
 import '../../View/ProductsView/CartPageView.dart';
 
 class Routes{
@@ -26,6 +29,12 @@ class Routes{
         return MaterialPageRoute(builder: (BuildContext context) => const ProductList());
       case RouteNames.cartPageRoute:
         return MaterialPageRoute(builder: (BuildContext context) => const CartPage());
+      case RouteNames.checkoutPageRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const CheckoutPage());
+      case RouteNames.orderListRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const OrderList());
+      case RouteNames.orderSummaryRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const OrderSummaryView());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(

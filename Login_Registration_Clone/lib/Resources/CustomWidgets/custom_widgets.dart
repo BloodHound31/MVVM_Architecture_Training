@@ -38,12 +38,12 @@ class CustomWidgets{
   }
 
 
-  static Widget customElevatedButton({required VoidCallback onPress}){
+  static Widget customElevatedButton({required VoidCallback onPress, double borderRadius = 60}){
     return ElevatedButton(
       style: ButtonStyle(
         padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 20.0, horizontal: 70)),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(60.0)
+            borderRadius: BorderRadius.circular(borderRadius),
         )),
         backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff293772)),
       ),

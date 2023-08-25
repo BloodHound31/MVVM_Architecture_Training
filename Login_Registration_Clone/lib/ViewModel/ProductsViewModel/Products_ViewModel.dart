@@ -116,4 +116,32 @@ class ProductViewModel with ChangeNotifier{
     return finalPrice;
   }
 
+  //Increasing Stocks
+  void increaseAvailableStocks(int index){
+    if (_numberOfProductOnPage[index].productDetails != null) {
+      if (_numberOfProductOnPage[index].productDetails!.availableStock != null &&
+          _numberOfProductOnPage[index].productDetails!.initialStocks != null) {
+        if (_numberOfProductOnPage[index].productDetails!.availableStock! < _numberOfProductOnPage[index].productDetails!.initialStocks!) {
+          _numberOfProductOnPage[index].productDetails!.availableStock = _numberOfProductOnPage[index].productDetails!.availableStock! + 1;
+          notifyListeners();
+        }
+      }
+    }
+  }
+
+  //Decreasing Stocks
+  void decreaseAvailableStocks(int index){
+    if (_numberOfProductOnPage[index].productDetails != null) {
+      if (_numberOfProductOnPage[index].productDetails!.availableStock != null &&
+          _numberOfProductOnPage[index].productDetails!.initialStocks != null) {
+        if (_numberOfProductOnPage[index].productDetails!.availableStock! > 0) {
+          _numberOfProductOnPage[index].productDetails!.availableStock = _numberOfProductOnPage[index].productDetails!.availableStock! - 1;
+
+        }
+      }
+    }
+    notifyListeners();
+
+  }
+
 }

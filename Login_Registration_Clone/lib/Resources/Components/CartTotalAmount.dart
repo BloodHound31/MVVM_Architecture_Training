@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/CartViewModel.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,10 @@ class _CartTotalAmountState extends State<CartTotalAmount> {
 
   @override
   Widget build(BuildContext context) {
-    print('_CartTotalAmountState building');
+    final cartModelView = Provider.of<CartViewModel>(context, listen: false);
+    if (kDebugMode) {
+      print('_CartTotalAmountState building');
+    }
     return Row(
       children: [
         Expanded(
@@ -53,7 +57,9 @@ class _CartTotalAmountState extends State<CartTotalAmount> {
                       height: 80,
                       padding: const EdgeInsets.all(10),
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          cartModelView.proceedToCheckout(context);
+                        },
                         icon: const Icon(Icons.check_outlined),
                         label: const Text(
                           'Proceed To Check Out',

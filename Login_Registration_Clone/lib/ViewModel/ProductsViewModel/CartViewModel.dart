@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
 
-import '../../Model/CartModel.dart';
+import '../../Model/ProductModels/CartModel.dart';
 import '../../Model/ProductModels/ProductModel.dart';
 
 class CartViewModel with ChangeNotifier{
@@ -44,14 +45,26 @@ class CartViewModel with ChangeNotifier{
     return finalPrice;
   }
 
-  //Get the total price
-  // double get totalDiscount{
-  //   double totalDiscount = 0.0;
-  //   _items.forEach((key, value) {
-  //     totalDiscount += value.discountPercent;
-  //   });
-  //
-  //   return totalDiscount;
-  // }
+  //Get the total discount
+  double get totalDiscount{
+    double totalDiscount = 0.0;
+    _items.forEach((key, value) {
+      totalDiscount += value.discountPercent!;
+    });
+
+    return totalDiscount;
+  }
+
+  void clearCart(){
+    _items.clear();
+    notifyListeners();
+  }
+
+
+ void proceedToCheckout(BuildContext context){
+    if(_items.isNotEmpty){
+      Navigator.pushNamed(context, RouteNames.checkoutPageRoute);
+    }
+ }
 
 }

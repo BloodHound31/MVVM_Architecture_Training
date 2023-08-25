@@ -52,6 +52,7 @@ class ProductModel {
 class ProductDetails {
   int? id;
   int? availableStock;
+  int? initialStocks;
   String? sellerName;
   double? sellingPrice;
   double? costPrice;
@@ -61,7 +62,9 @@ class ProductDetails {
         this.availableStock,
         this.sellerName,
         this.sellingPrice,
-        this.costPrice});
+        this.costPrice}){
+
+  }
 
   ProductDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -69,6 +72,7 @@ class ProductDetails {
     sellerName = json['sellerName'];
     sellingPrice = json['sellingPrice'];
     costPrice = json['costPrice'];
+    initialStocks = availableStock;
   }
 
   Map<String, dynamic> toJson() {
@@ -78,6 +82,7 @@ class ProductDetails {
     data['sellerName'] = sellerName;
     data['sellingPrice'] = sellingPrice;
     data['costPrice'] = costPrice;
+
     return data;
   }
 }

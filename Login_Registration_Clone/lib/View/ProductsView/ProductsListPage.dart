@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/Components/ProductListFormat.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/Products_ViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -87,6 +88,9 @@ class _ProductListState extends State<ProductList> {
                       flex: 1,
                       child: Consumer<ProductViewModel>(builder: (__, provider, _) {
                         return CustomDropDown(
+                          borderRadius: 50,
+                          textColor: AppColor.darkIndigo,
+                          bgColor: AppColor.lightIndigo,
                           list: provider.sortList,
                           dropDownValue: provider.sortValue,
                           onChange: (value){
@@ -101,6 +105,9 @@ class _ProductListState extends State<ProductList> {
                       flex: 1,
                       child: Consumer<ProductViewModel>(builder: (__, provider, _) {
                         return CustomDropDown(
+                          borderRadius: 50,
+                          textColor: AppColor.darkIndigo,
+                          bgColor: AppColor.lightIndigo,
                           list: provider.numberOfProducts,
                           dropDownValue: provider.selectedNumberOfProducts,
                           onChange: (value){

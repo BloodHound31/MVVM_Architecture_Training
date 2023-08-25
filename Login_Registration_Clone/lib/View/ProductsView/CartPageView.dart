@@ -14,6 +14,7 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final cartProvider = Provider.of<CartViewModel>(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFF293770),
       appBar: AppBar(
@@ -78,7 +79,9 @@ class _CartPageState extends State<CartPage> {
                                   radius: 18,
                                   backgroundColor: const Color(0xFF293771),
                                   child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        cartProvider.subtractItems(product: cartItem.product!);
+                                      },
                                       icon: const Icon(
                                         Icons.remove,
                                         size: 18,

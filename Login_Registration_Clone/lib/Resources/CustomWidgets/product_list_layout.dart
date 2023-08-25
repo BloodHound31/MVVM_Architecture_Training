@@ -24,11 +24,11 @@ class _ProductListLayoutState extends State<ProductListLayout> {
 
   @override
   Widget build(BuildContext context) {
-    final productProvider = Provider.of<ProductViewModel>(context);
+    final productProvider = Provider.of<ProductViewModel>(context, listen: false);
     final cartProvider = Provider.of<CartViewModel>(context, listen: false);
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height * 0.75,
           child: PageView.builder(
             controller: pageController,
@@ -61,7 +61,10 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                               Text('Final Price: ${productFinalPrice.toString()}'),
                               Text('Seller: ${productProvider.numberOfProductsOnPage[index].sellerName}'),
                               Text('Category: ${productProvider.numberOfProductsOnPage[index].productCategories}'),
-                              Text('Available Stocks: ${productProvider.numberOfProductsOnPage[index].productDetails!.availableStock}'),
+                              Selector<ProductViewModel, int?>(
+                                  selector: (_, provider) => provider.numberOfProductsOnPage[index].productDetails!.availableStock,
+                                  builder: (__, value, _) => Text('Available Stocks: ${value.toString()}'),
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -71,6 +74,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                     child: IconButton(
                                         onPressed: () {
                                           cartProvider.addItems(product: productProvider.numberOfProductsOnPage[index]);
+                                          productProvider.decreaseAvailableStocks(index);
                                         },
                                         icon: const Icon(
                                           Icons.add,
@@ -79,7 +83,11 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                         )),
                                   ),
                                   const SizedBox(width: 5),
-                                  const Text('0'),
+                                   Selector<CartViewModel, int?>(
+                                       selector: (_, cartProvider) => cartProvider.items.containsKey(productProvider.numberOfProductsOnPage[index].productName)
+                                           ? cartProvider.items[productProvider.numberOfProductsOnPage[index].productName]!.productQuantity : 0,
+                                      builder: (__, value, _) => Text(value.toString()),
+                                   ),
                                   const SizedBox(
                                     width: 5,
                                   ),
@@ -89,7 +97,8 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                     child: IconButton(
                                         onPressed: () {
                                           cartProvider.subtractItems(product: productProvider.numberOfProductsOnPage[index]);
-                                        },
+                                          productProvider.increaseAvailableStocks(index);
+                                          },
                                         icon: const Icon(
                                           Icons.remove,
                                           size: 18,

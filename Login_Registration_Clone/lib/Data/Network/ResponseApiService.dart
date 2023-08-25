@@ -51,6 +51,27 @@ class NetworkApiService extends BaseApiService{
     return responseJson;
   }
 
+  @override
+  Future getPatchApiResponse(String url, data) async{
+    dynamic responseJson;
+    try{
+      http.Response response;
+
+        response = await http.patch(
+          Uri.parse(url),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: jsonEncode(data),
+        ).timeout(const Duration(seconds: 5));
+
+      responseJson = returnResponse(response);
+    }catch(e){
+      throw FetchDataException(e.toString());
+    }
+    return responseJson;
+  }
+
 
   dynamic returnResponse(http.Response response){
 
@@ -79,6 +100,8 @@ class NetworkApiService extends BaseApiService{
         throw FetchDataException('Error occurred while communicating\nStatusCode: ${response.statusCode}');
     }
   }
+
+
 
 
 }
