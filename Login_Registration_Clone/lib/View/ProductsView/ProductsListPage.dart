@@ -22,10 +22,10 @@ class _ProductListState extends State<ProductList> {
 
     final productsProvider = Provider.of<ProductViewModel>(context, listen: false);
     return Scaffold(
-      backgroundColor: const Color(0xFF293770),
+      backgroundColor: AppColor.darkIndigo,
       //Drawer
       drawer: Drawer(
-        backgroundColor: const Color(0xFFFFFFFF),
+        backgroundColor: AppColor.whiteColor,
         child: ListView(
           children: [
             const UserAccountsDrawerHeader(
@@ -54,7 +54,7 @@ class _ProductListState extends State<ProductList> {
       //AppBar
       appBar: AppBar(
         title: const Text('My Store'),
-        backgroundColor: const Color(0xFF29376F),
+        backgroundColor: AppColor.darkIndigo,
         centerTitle: true,
       ),
       // backgroundColor: Colors.grey[900],
@@ -74,7 +74,7 @@ class _ProductListState extends State<ProductList> {
                       child: TextField(
                               onChanged: (value) => productsProvider.searchProduct(value),
                               decoration: InputDecoration(
-                                  fillColor: const Color(0xFFF1F2EB),
+                                  fillColor: AppColor.whiteColor,
                                   filled: true,
                                   labelText: 'Search',
                                   prefixIcon: const Icon(Icons.search),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/order_summary_view_model.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _OrderListLayoutState extends State<OrderListLayout> {
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    color: const Color(0xFFEEEEEE),
+                    color: AppColor.whiteColor,
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: ExpansionTile(
@@ -83,7 +84,7 @@ class _OrderListLayoutState extends State<OrderListLayout> {
                                       orderDetailsViewModel.initializeValue(orderViewModel.filteredList[index]);
                                     },
                                     style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF293770)),
+                                        backgroundColor: MaterialStateProperty.all<Color>(AppColor.darkIndigo),
                                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(20)),
                                         )

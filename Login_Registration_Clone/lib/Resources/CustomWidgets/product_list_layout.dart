@@ -5,6 +5,7 @@ import 'package:login_registration_clone/ViewModel/ProductsViewModel/Products_Vi
 import 'package:provider/provider.dart';
 
 import '../Components/PageButtons.dart';
+import '../colors.dart';
 
 
 class ProductListLayout extends StatefulWidget {
@@ -45,7 +46,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                     child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
-                      color: const Color(0xFFEEEEEE),
+                      color: AppColor.whiteColor,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ListTile(
@@ -70,7 +71,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                 children: [
                                   CircleAvatar(
                                     radius: 18,
-                                    backgroundColor: const Color(0xFF293771),
+                                    backgroundColor: AppColor.darkIndigo,
                                     child: IconButton(
                                         onPressed: () {
                                           cartProvider.addItems(product: productProvider.numberOfProductsOnPage[index]);
@@ -79,7 +80,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                         icon: const Icon(
                                           Icons.add,
                                           size: 18,
-                                          color: Colors.white,
+                                          color: AppColor.whiteColor,
                                         )),
                                   ),
                                   const SizedBox(width: 5),
@@ -93,7 +94,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                   ),
                                   CircleAvatar(
                                     radius: 18,
-                                    backgroundColor: const Color(0xFF293771),
+                                    backgroundColor: AppColor.darkIndigo,
                                     child: IconButton(
                                         onPressed: () {
                                           cartProvider.subtractItems(product: productProvider.numberOfProductsOnPage[index]);
@@ -102,7 +103,7 @@ class _ProductListLayoutState extends State<ProductListLayout> {
                                         icon: const Icon(
                                           Icons.remove,
                                           size: 18,
-                                          color: Colors.white,
+                                          color: AppColor.whiteColor,
                                         )),
                                   ),
                                 ],

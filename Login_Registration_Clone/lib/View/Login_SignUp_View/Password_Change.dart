@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/custom_widgets.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/Utils/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +45,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                     style: TextStyle(
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFFF1F2EB),
+                      color: AppColor.whiteColor,
                     ),
                   ),
                 ),
@@ -54,7 +55,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Color(0xFF8C9BDA),
+                  color: AppColor.lightIndigo,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(70), topRight: Radius.circular(70)),
                 ),
                 child: Padding(

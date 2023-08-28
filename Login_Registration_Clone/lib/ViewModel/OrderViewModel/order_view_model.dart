@@ -8,23 +8,23 @@ import '../../Model/OrdersModels/OrderEntity/product_details.dart';
 class OrderListViewModel with ChangeNotifier{
 
   final List<OrderModel> _orderList = [
-    OrderModel(id: 1, totalMrp: 300, totalDiscount: 50, payAmount: 100, orderStatus: 'Pending', customerName: 'Customer A', productQuantity: 5,
+    OrderModel(id: 1, billDate: DateTime.now(), vehicleName: '90076',totalMrp: 300, totalDiscount: 50, payAmount: 100, orderStatus: 'Pending', customerName: 'Customer A', productQuantity: 5,
         billingAddress: BillingAddress(buildingName: 'Shop-13 Amar Building', streetName: 'Main Carter Road', townName: 'Borivali West', cityName: 'Mumbai', stateName: 'Maharashtra', pinCode: 400092),
         productList: [ProductDetail(productName: 'Bath Soap', productQuantity: 10, productPrice: 50), ProductDetail(productName: 'Detergent', productQuantity: 20, productPrice: 30)]),
 
-    OrderModel(id: 2, totalMrp: 500, totalDiscount: 100, payAmount: 400, orderStatus: 'Pending', customerName: 'Customer B', productQuantity: 10,
+    OrderModel(id: 2, billDate: DateTime.now(), vehicleName: '90076', totalMrp: 500, totalDiscount: 100, payAmount: 400, orderStatus: 'Pending', customerName: 'Customer B', productQuantity: 10,
         billingAddress: BillingAddress(buildingName: 'Shop No.1 Sheetal Park', streetName: 'Sundar Nagar', townName: 'Borivali West', cityName: 'Mumbai', stateName: 'Maharashtra', pinCode: 400092),
         productList: [ProductDetail(productName: 'Maggie', productQuantity: 10, productPrice: 80), ProductDetail(productName: 'ToothBrush', productQuantity: 15, productPrice: 40)]),
 
-    OrderModel(id: 3, totalMrp: 500, totalDiscount: 100, payAmount: 400, orderStatus: 'PartialCancelled', customerName: 'Customer C', productQuantity: 10,
+    OrderModel(id: 3, billDate: DateTime.now(), vehicleName: '90076', totalMrp: 500, totalDiscount: 100, payAmount: 400, orderStatus: 'PartialCancelled', customerName: 'Customer C', productQuantity: 10,
         billingAddress: BillingAddress(buildingName: 'Shop No. 37 Ajanta Square Mal', streetName: 'L.T Road', townName: 'Borivali West', cityName: 'Mumbai', stateName: 'Maharashtra', pinCode: 400092),
         productList: [ProductDetail(productName: 'Potato Chips', productQuantity: 40, productPrice: 20), ProductDetail(productName: 'Cheese', productQuantity: 20, productPrice: 15)]),
 
-    OrderModel(id: 4, totalMrp: 900, totalDiscount: 200, payAmount: 700, orderStatus: 'Full Cancel', customerName: 'Customer D', productQuantity: 10,
+    OrderModel(id: 4, billDate: DateTime.now(), vehicleName: '90076', totalMrp: 900, totalDiscount: 200, payAmount: 700, orderStatus: 'Full Cancel', customerName: 'Customer D', productQuantity: 10,
         billingAddress: BillingAddress(buildingName: 'Shop No.2, daya benkhat poul', streetName: 'Dattapada Rd', townName: 'Borivali East', cityName: 'Mumbai', stateName: 'Maharashtra', pinCode: 400066),
         productList: [ProductDetail(productName: 'Bread', productQuantity: 20, productPrice: 40), ProductDetail(productName: 'Cold Drink', productQuantity: 20, productPrice: 20)]),
 
-    OrderModel(id: 5, totalMrp: 1000, totalDiscount: 100, payAmount: 900, orderStatus: 'Delivered', customerName: 'Customer E', productQuantity: 5,
+    OrderModel(id: 5, billDate: DateTime.now(), vehicleName: '90076', totalMrp: 1000, totalDiscount: 100, payAmount: 900, orderStatus: 'Delivered', customerName: 'Customer E', productQuantity: 5,
         billingAddress: BillingAddress(buildingName: ' Annapurna mart Shop no 2 Esspee tower ', streetName: 'Dattapada Rd', townName: 'Borivali East', cityName: 'Mumbai', stateName: 'Maharashtra', pinCode: 400066),
         productList: [ProductDetail(productName: 'Dairy Milk', productQuantity: 30, productPrice: 20), ProductDetail(productName: 'Oreo', productQuantity: 20, productPrice: 35)])
   ];

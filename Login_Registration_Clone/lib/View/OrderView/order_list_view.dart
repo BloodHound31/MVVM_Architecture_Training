@@ -19,18 +19,18 @@ class _OrderListState extends State<OrderList> {
     final orderListViewModel = Provider.of<OrderListViewModel>(context, listen: false);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF293770),
+      backgroundColor: AppColor.darkIndigo,
       appBar: AppBar(
         title: const Text('Order History'),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: const Color(0xFF293770),
+        backgroundColor: AppColor.darkIndigo,
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xFF8C9BDA),
+          color: AppColor.lightIndigo,
         ),
         child: Column(
           children: [
@@ -43,7 +43,7 @@ class _OrderListState extends State<OrderList> {
                     child:TextField(
                       onChanged: (value) => orderListViewModel.searchProduct(value),
                       decoration: InputDecoration(
-                          fillColor: const Color(0xFFF1F2EB),
+                          fillColor: AppColor.whiteColor,
                           filled: true,
                           labelText: 'Search',
                           prefixIcon: const Icon(Icons.search),

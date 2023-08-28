@@ -3,6 +3,8 @@ import 'package:login_registration_clone/Resources/Components/CartTotalAmount.da
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/CartViewModel.dart';
 import 'package:provider/provider.dart';
 
+import '../../Resources/colors.dart';
+
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
@@ -16,11 +18,11 @@ class _CartPageState extends State<CartPage> {
     final cartProvider = Provider.of<CartViewModel>(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF293770),
+      backgroundColor: AppColor.darkIndigo,
       appBar: AppBar(
         title: const Text('Your Cart'),
         centerTitle: true,
-        backgroundColor: const Color(0xFF293771),
+        backgroundColor: AppColor.darkIndigo,
       ),
       body: Column(
         children: [
@@ -35,7 +37,7 @@ class _CartPageState extends State<CartPage> {
                   return Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
-                    color: const Color(0xFF8C9BDA),
+                    color: AppColor.lightIndigo,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: ListTile(
@@ -62,7 +64,7 @@ class _CartPageState extends State<CartPage> {
                               children: [
                                 CircleAvatar(
                                   radius: 18,
-                                  backgroundColor: const Color(0xFF293771),
+                                  backgroundColor: AppColor.darkIndigo,
                                   child: IconButton(
                                       onPressed: () {
                                         cartProvider.addItems(product: cartItem.product!);
@@ -77,7 +79,7 @@ class _CartPageState extends State<CartPage> {
                                 ),
                                 CircleAvatar(
                                   radius: 18,
-                                  backgroundColor: const Color(0xFF293771),
+                                  backgroundColor: AppColor.darkIndigo,
                                   child: IconButton(
                                       onPressed: () {
                                         cartProvider.subtractItems(product: cartItem.product!);

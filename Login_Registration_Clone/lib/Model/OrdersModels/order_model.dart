@@ -6,6 +6,8 @@ class OrderModel{
 
   late int id;
   late String customerName;
+  late DateTime billDate;
+  late String vehicleName;
   late int productQuantity;
   late double totalMrp;
   late double totalDiscount;
@@ -14,6 +16,6 @@ class OrderModel{
   late BillingAddress billingAddress;
   late List<ProductDetail> productList;
 
-  OrderModel({required this.id, required this.customerName, required this.productQuantity,required this.totalMrp, required this.totalDiscount, required this.payAmount, required this.orderStatus, required this.billingAddress, required this.productList});
+  OrderModel({required this.id, required this.customerName, required this.billDate, required this.vehicleName, required this.productQuantity,required this.totalMrp, required this.totalDiscount, required this.payAmount, required this.orderStatus, required this.billingAddress, required this.productList});
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/CartViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +28,7 @@ class _CartTotalAmountState extends State<CartTotalAmount> {
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              color: const Color(0xFF8B9AD8),
+              color: AppColor.lightIndigo,
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Column(
@@ -43,7 +44,7 @@ class _CartTotalAmountState extends State<CartTotalAmount> {
                                 style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: AppColor.blackColor,
                                 ),
                               );
                             },
@@ -69,7 +70,7 @@ class _CartTotalAmountState extends State<CartTotalAmount> {
                         style: ButtonStyle(
                           backgroundColor:
                           MaterialStateProperty.all<Color>(
-                              const Color(0xFF293771)),
+                              AppColor.darkIndigo),
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               const EdgeInsets.all(10)),
                         ),

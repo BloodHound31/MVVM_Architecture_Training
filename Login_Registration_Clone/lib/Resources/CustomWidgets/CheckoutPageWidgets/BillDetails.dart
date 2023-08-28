@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/CheckoutViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,7 @@ class BillDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Bill Details', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white), ),
+        const Text('Bill Details', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColor.whiteColor), ),
         const SizedBox(height: 10,),
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

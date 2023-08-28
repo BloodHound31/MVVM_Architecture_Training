@@ -27,10 +27,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
   Widget build(BuildContext context) {
     final checkoutViewModel = Provider.of<CheckoutViewModel>(context, listen: false);
     return Scaffold(
-      backgroundColor: const Color(0xFF293770),
+      backgroundColor: AppColor.darkIndigo,
       appBar: AppBar(
         title: const Text('CheckOut'),
-        backgroundColor: const Color(0xFF293771),
+        backgroundColor: AppColor.darkIndigo,
         centerTitle: true,
 
       ),
@@ -41,7 +41,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             Expanded(
               child: Card(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                color: const Color(0xFF8C9BDA),
+                color: AppColor.lightIndigo,
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
@@ -53,7 +53,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               alignment: Alignment.centerLeft ,
                               child: Text(
                                 'Customer Details',
-                                style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),)),
+                                style: TextStyle(color: AppColor.whiteColor, fontSize: 20, fontWeight: FontWeight.bold),)),
                           const SizedBox(height: 10,),
                           CustomerDetails(
                               nameController: nameController,
@@ -66,7 +66,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: Colors.white
+                                  color: AppColor.whiteColor
                               ),
                             ),
                           ),
@@ -94,7 +94,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             margin: const EdgeInsets.symmetric(vertical: 5),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: const Color(0xFF8C9BDA),
+                              color: AppColor.lightIndigo,
                             ),
                             child: const Padding(
                               padding: EdgeInsets.all(8.0),

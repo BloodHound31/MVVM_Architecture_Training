@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/custom_widgets.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/Utils/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -47,7 +48,7 @@ class _RegistrationState extends State<Registration> {
                       style: TextStyle(
                         fontSize: 60,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFF1F2EB),
+                        color: AppColor.whiteColor,
                       )
                   ),
                 ],
@@ -58,7 +59,7 @@ class _RegistrationState extends State<Registration> {
               child: Container(
 
                 decoration: const BoxDecoration(
-                  color: Color(0xFF8C9BDA),
+                  color: AppColor.lightIndigo,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(70), topRight: Radius.circular(70)),
                 ),
                 //margin: EdgeInsets.symmetric(horizontal: 40),
@@ -69,15 +70,17 @@ class _RegistrationState extends State<Registration> {
                       key: _formKey,
                       child: Column(
                         children: [
-                          CustomWidgets.inputText(textField: 'username', controller: _userNameController),
+                          CustomWidgets.inputText(textField: 'USERNAME', controller: _userNameController, icon: Icons.person, color: AppColor.darkIndigo),
                           const SizedBox(height: 20),
-                          CustomWidgets.inputText(textField: 'EmailId', controller: _emailController),
+                          CustomWidgets.inputText(textField: 'EmailId', controller: _emailController, icon: Icons.alternate_email, color: AppColor.darkIndigo),
                           const SizedBox(height: 20),
-                          CustomWidgets.inputText(textField: 'Password', controller: _passwordController, isObsurce: true),
+                          CustomWidgets.inputText(textField: 'Password', controller: _passwordController, isObsurce: true, icon: Icons.lock, color: AppColor.darkIndigo),
                           const SizedBox(height: 20),
-                          CustomWidgets.inputText(textField: 'details', controller: _detailsController),
+                          CustomWidgets.inputText(textField: 'details', controller: _detailsController, icon: Icons.edit, color: AppColor.darkIndigo),
                           const SizedBox(height: 20),
                           CustomWidgets.customElevatedButton(
+                             borderRadius: 10,
+                              text: 'Register',
                               onPress: (){
                                 if (_formKey.currentState!.validate()){
                                   //Form is Valid

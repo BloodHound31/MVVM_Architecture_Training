@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/custom_widgets.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 
 
 class CustomerDetails extends StatelessWidget {
@@ -13,12 +14,12 @@ class CustomerDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF293771),
+        color: AppColor.darkIndigo,
         borderRadius: BorderRadius.circular(10),
       ),
       child: ExpansionTile(
         initiallyExpanded: true,
-        title: const Text('Details', style: TextStyle(color: Colors.white),),
+        title: const Text('Details', style: TextStyle(color: AppColor.whiteColor),),
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),

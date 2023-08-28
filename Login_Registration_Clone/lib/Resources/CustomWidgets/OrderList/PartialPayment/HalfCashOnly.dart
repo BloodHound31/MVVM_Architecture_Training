@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/payment_summary_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +36,7 @@ class _HalfCashOnlyState extends State<HalfCashOnly> {
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.all(15),
                             label: const Text('Amount will be paying'),
-                            fillColor: const Color(0xFFFFFFFF),
+                            fillColor: AppColor.whiteColor,
                             filled: true,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -61,14 +62,14 @@ class _HalfCashOnlyState extends State<HalfCashOnly> {
                     child: ElevatedButton(
                       onPressed: (){},
                       style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF293770))
+                          backgroundColor: MaterialStateProperty.all<Color>(AppColor.darkIndigo)
                       ),
                       child: const Text(
                         'Submit',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppColor.whiteColor,
                         ),
                       ),
                     ),

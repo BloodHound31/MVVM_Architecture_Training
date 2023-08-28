@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/Products_ViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -35,11 +36,11 @@ class PageButtons extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       )),
                   backgroundColor:
-                  MaterialStateProperty.all<Color>(const Color(0xFF8B9AD8)),
+                  MaterialStateProperty.all<Color>(AppColor.lightIndigo),
                 ),
                 child: const Text(
                   'Previous',
-                  style: TextStyle(color: Color(0xFF29376F)),
+                  style: TextStyle(color: AppColor.darkIndigo),
                 ),
               ),
               const SizedBox(width: 20),
@@ -60,11 +61,11 @@ class PageButtons extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       )),
                   backgroundColor:
-                  MaterialStateProperty.all<Color>(const Color(0xFF8B9AD8)),
+                  MaterialStateProperty.all<Color>(AppColor.lightIndigo),
                 ),
                 child: const Text(
                   'Next',
-                  style: TextStyle(color: Color(0xFF29376F)),
+                  style: TextStyle(color: AppColor.darkIndigo),
                 ),
               ),
               const SizedBox(

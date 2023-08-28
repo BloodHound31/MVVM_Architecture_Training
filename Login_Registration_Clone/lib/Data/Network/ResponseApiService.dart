@@ -32,7 +32,7 @@ class NetworkApiService extends BaseApiService{
             'Content-Type': 'application/json',
           },
           body: jsonEncode(data),
-        ).timeout(const Duration(seconds: 5));
+        ).timeout(const Duration(seconds: 10));
       } else {
         // Construct query parameters from the data
         response = await http.post(
@@ -63,7 +63,7 @@ class NetworkApiService extends BaseApiService{
             'Content-Type': 'application/json',
           },
           body: jsonEncode(data),
-        ).timeout(const Duration(seconds: 5));
+        ).timeout(const Duration(seconds: 10));
 
       responseJson = returnResponse(response);
     }catch(e){

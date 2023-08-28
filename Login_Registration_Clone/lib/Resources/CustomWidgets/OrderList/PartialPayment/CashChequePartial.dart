@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/bank_payment.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 
 class CashChequePartial extends StatefulWidget {
   const CashChequePartial({super.key});
@@ -23,7 +24,7 @@ class _CashChequePartialState extends State<CashChequePartial> {
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(15),
                     label: const Text('Amount in cash'),
-                    fillColor: const Color(0xFFFFFFFF),
+                    fillColor: AppColor.whiteColor,
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),

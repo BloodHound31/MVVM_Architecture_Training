@@ -17,4 +17,6 @@ class RouteNames{
   static const String orderListRoute = 'OrderList';
 
   static const String orderSummaryRoute = 'OrderSummary';
+
+  static const String loadingRoute = 'Loading';
 }

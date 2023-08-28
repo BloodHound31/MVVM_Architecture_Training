@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 
 class CustomWidgets{
 
 
-  static Widget inputText({textField, controller, isObsurce = false}){
+  static Widget inputText({textField, controller, isObsurce = false, icon, color}){
     return Container(
       decoration: BoxDecoration(
-          color: const Color(0xFFEFF0E9),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [BoxShadow(
-            color: Color(0xFF2E3E80),
-            blurRadius: 10.0,
-            offset: Offset(0,10),
-          )]
+          color: AppColor.whiteColor,
+          borderRadius: BorderRadius.circular(15),
       ),
       child: TextFormField(
         controller: controller,
@@ -23,14 +19,22 @@ class CustomWidgets{
           }
           return text;
         },
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(color: AppColor.blackColor),
         obscureText: isObsurce,
         decoration: InputDecoration(
+
+            contentPadding:  const EdgeInsets.symmetric(vertical: 10.0),
+            prefixIconColor: color,
+            prefixIcon: Padding(
+              padding: const EdgeInsets.only(left: 40, right: 10),
+              child: Icon(icon),
+            ),
             fillColor: Colors.transparent,
             filled: true,
+            hintStyle: TextStyle(color: color, fontFamily: 'JoannaSansNovaBook'),
             hintText: textField,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(15),
             )),
 
       ),
@@ -38,17 +42,17 @@ class CustomWidgets{
   }
 
 
-  static Widget customElevatedButton({required VoidCallback onPress, double borderRadius = 60}){
+  static Widget customElevatedButton({required VoidCallback onPress, double borderRadius = 60, color = AppColor.propsColor, text = 'Submit', bool loading = false}){
     return ElevatedButton(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 20.0, horizontal: 70)),
+        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 9.0, horizontal: 70)),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
         )),
-        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff293772)),
+        backgroundColor: MaterialStateProperty.all<Color>(color),
       ),
       onPressed: onPress,
-      child:const Text('Submit', style: TextStyle(fontSize: 20.0, color: Color(0xFFF1F2EB)),),
+      child:loading ? const CircularProgressIndicator(color: AppColor.whiteColor,):Text(text, style: const TextStyle(fontSize: 20.0, color: AppColor.whiteColor, fontFamily: 'JoannaSansNovaBook'),),
     );
   }
 
@@ -64,11 +68,21 @@ class CustomWidgets{
         '$text',
         style: const TextStyle(
           fontSize: 50.0,
-          color: Colors.black,
+          color: AppColor.blackColor,
           fontWeight: FontWeight.w600,
         ),
       ),
     );
+  }
+
+
+  static Widget customText({required String text}){
+    return Text(text,
+      style:const TextStyle(
+          fontSize: 16,
+          color: AppColor.propsColor,
+          fontFamily: 'JoannaSansNovaBook'
+      ),);
   }
 
 }

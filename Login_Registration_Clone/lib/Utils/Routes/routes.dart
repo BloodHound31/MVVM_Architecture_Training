@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
+import 'package:login_registration_clone/View/Comman%20View/loading_splash_screen.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Home_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Login_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Registration_Page.dart';
@@ -35,6 +36,8 @@ class Routes{
         return MaterialPageRoute(builder: (BuildContext context) => const OrderList());
       case RouteNames.orderSummaryRoute:
         return MaterialPageRoute(builder: (BuildContext context) => const OrderSummaryView());
+      case RouteNames.loadingRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const LoadingState());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(
