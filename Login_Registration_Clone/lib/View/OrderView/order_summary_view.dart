@@ -49,12 +49,12 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                       topLeft: Radius.circular(20)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 30, right: 30),
+                  padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Bill Details',
+                        'Billing Details',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -103,50 +103,49 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                       Row(
                         children: [
                           Expanded(
-                            child: Container(
+                            child: SizedBox(
                               width: double.infinity,
-                              height: 30,
+                              height: 35,
                               child: TextField(
                                 onChanged: (value) => orderSummaryViewModel.searchProduct(value),
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.grey.shade300)
+                                      borderSide: BorderSide(color: Colors.grey.shade300),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: AppColor.propsColor
-                                      )
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(color: AppColor.propsColor),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                     fillColor: AppColor.searchBoxColor,
                                     filled: true,
+                                    prefixIconColor: AppColor.propsColor,
                                     labelStyle: const TextStyle(
                                       fontFamily: 'JoannaSansNovaBook',
                                       color: AppColor.propsColor,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                     labelText: 'Search......',
                                     prefixIcon: const Padding(
-                                      padding: EdgeInsets.only(left: 10.0, right: 5),
+                                      padding: EdgeInsets.only(left: 30.0, right: 5),
                                       child: Icon(Icons.search),
                                     ),
                                     border: OutlineInputBorder(
                                       borderSide: BorderSide(color: Colors.grey.shade300),
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(10),
                                     )),
                               ),
                             ),
                           ),
                         ],
                       ),
+                      const SizedBox(height: 20,),
                       const SizedBox(
                         width: double.infinity,
                         child: ProductSummary(),
                       ),
-                      const SizedBox(height: 10,),
-                      Selector<OrderSummaryViewModel, int>(
-                        selector: (_, orderDetailsProvider) => orderDetailsProvider.payAmount(),
-                        builder: (_, value, __) =>  Text('Total Amount: $value', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color:AppColor.darkIndigo),),),
-                      const Divider(color: AppColor.darkIndigo, thickness: 1,),
+                      const Divider(thickness: 1,),
+                      const SizedBox(height: 20),
                       const SizedBox(
                         width: double.infinity,
                         height: 700,

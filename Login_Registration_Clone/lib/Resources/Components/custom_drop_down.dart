@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_registration_clone/Resources/colors.dart';
 
 class CustomDropDown extends StatelessWidget {
 
@@ -18,26 +19,27 @@ class CustomDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 30,
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(borderRadius),
+        border: Border.all(color: Colors.grey.shade300),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<dynamic>(
-          hint: const Text('A-Z'),
+          hint: const Text('Select Payment Method', style: TextStyle(color: AppColor.propsColor),),
           value: dropDownValue,
-          icon: Icon(Icons.arrow_drop_down_outlined, size: 18, color: textColor),
+          icon: const SizedBox.shrink(),
+          isExpanded: true,
           elevation: 14,
-          style: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.bold),
+          style: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.bold,),
+          alignment: Alignment.center,
           dropdownColor: bgColor,
           onChanged: onChange,
           items: list.map<DropdownMenuItem<dynamic>>((dynamic value) {
             return DropdownMenuItem<dynamic>(
               value: value,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(value.toString()),
-              ),
+              child: Center(child: Text(value.toString())),
             );
           }).toList(),
         ),

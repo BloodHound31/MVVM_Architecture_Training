@@ -76,12 +76,13 @@ class CustomWidgets{
   }
 
 
-  static Widget customText({required String text}){
+  static Widget customText({required String text, FontWeight fontWeight = FontWeight.normal, double? fontSize = 16.0}){
     return Text(text,
-      style:const TextStyle(
-          fontSize: 16,
+      style:TextStyle(
+          fontSize: fontSize,
           color: AppColor.propsColor,
-          fontFamily: 'JoannaSansNovaBook'
+          fontFamily: 'JoannaSansNovaBook',
+          fontWeight: fontWeight,
       ),);
   }
 

@@ -13,7 +13,7 @@ class PaymentSummaryViewModel with ChangeNotifier{
 
   final List<String> _paymentList = ['Cash', 'Cheque', 'Partial Payment', 'Credit Note'];
 
-  late String _selectedMethod;
+  String? _selectedMethod;
   Widget _paymentDetailsWidget = Container();
   Widget _partialPaymentWidget = Container();
   //For bank
@@ -28,7 +28,7 @@ class PaymentSummaryViewModel with ChangeNotifier{
 
   List<String> get paymentList => _paymentList;
 
-  String get selectedMethod => _selectedMethod;
+  String? get selectedMethod => _selectedMethod;
 
   Widget get paymentDetailsWidget => _paymentDetailsWidget;
 
@@ -48,7 +48,7 @@ class PaymentSummaryViewModel with ChangeNotifier{
 
 
   PaymentSummaryViewModel(){
-  _selectedMethod = _paymentList.first;
+  //_selectedMethod = _paymentList.first;
   _selectedBank = _bankList.first;
   _selectedPaymentOption = _paymentOption.first;
   }

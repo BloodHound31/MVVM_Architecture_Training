@@ -61,7 +61,7 @@ class OrderSummaryViewModel with ChangeNotifier{
     } else {
       result = _productSummary
           .where((element) =>
-      element.productName!
+      element.productName
           .toLowerCase()
           .contains(enteredKeyword.toLowerCase()))
           .toList();
@@ -76,6 +76,7 @@ class OrderSummaryViewModel with ChangeNotifier{
     if(_productSummary.isNotEmpty && index >= 0 && index < _productSummary.length) {
       if(_productSummary[index].productQuantity > 0){
         _productSummary[index].productQuantity--;
+        _productSummary[index].cancelQuantity++;
         _productSummary[index].totalProductPrice = totalPrice(_productSummary[index].productPrice, _productSummary[index].productQuantity);
       }
       notifyListeners();
@@ -90,6 +91,7 @@ class OrderSummaryViewModel with ChangeNotifier{
     if(_productSummary.isNotEmpty && index >= 0 && index < _productSummary.length) {
       if(_productSummary[index].productQuantity < _productSummary[index].initialQuantity){
         _productSummary[index].productQuantity++;
+        _productSummary[index].cancelQuantity--;
         _productSummary[index].totalProductPrice = totalPrice(_productSummary[index].productPrice, _productSummary[index].productQuantity);
       }
     }
@@ -101,6 +103,7 @@ class OrderSummaryViewModel with ChangeNotifier{
     if(_productSummary.isNotEmpty) {
       _productSummary[index].productQuantity = _productSummary[index].initialQuantity;
       _productSummary[index].totalProductPrice = _productSummary[index].initialTotal;
+      _productSummary[index].cancelQuantity = _productSummary[index].initialCancel;
     }
     notifyListeners();
   }
@@ -109,6 +112,7 @@ class OrderSummaryViewModel with ChangeNotifier{
     if(_productSummary.isNotEmpty) {
       _productSummary[index].initialQuantity = _productSummary[index].productQuantity;
       _productSummary[index].initialTotal = _productSummary[index].totalProductPrice;
+      _productSummary[index].initialCancel = _productSummary[index].cancelQuantity;
     }
     notifyListeners();
   }
