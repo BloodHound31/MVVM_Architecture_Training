@@ -49,6 +49,7 @@ class PaymentSummary extends StatelessWidget {
                   flex: 1,
                   child: Consumer<PaymentSummaryViewModel>(builder: (context, paymentSummary, child) {
                     return CustomDropDown(
+                        dropDownHeight: 30,
                         list: paymentSummary.paymentList,
                         dropDownValue: paymentSummary.selectedMethod,
                         onChange: (value) => paymentSummary.switchWidget(value),

@@ -26,6 +26,7 @@ class _BankPaymentState extends State<BankPayment> {
                 padding: const EdgeInsets.only(top: 8, bottom: 5),
                 child: Consumer<PaymentSummaryViewModel>(builder: (context, bankProvider, child) {
                   return CustomDropDown(
+                      dropDownHeight: 40,
                       list: bankProvider.bankList,
                       dropDownValue: bankProvider.selectedBank,
                       onChange: (onChange) => bankProvider.onToggleChange(onChange),

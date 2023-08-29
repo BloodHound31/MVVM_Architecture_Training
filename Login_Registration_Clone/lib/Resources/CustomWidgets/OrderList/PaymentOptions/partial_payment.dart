@@ -25,6 +25,7 @@ class _PartialPaymentState extends State<PartialPayment> {
               Expanded(
                 child: Consumer<PaymentSummaryViewModel>(builder: (__, value, _) {
                   return CustomDropDown(
+                      dropDownHeight: 40,
                       list: value.paymentOption,
                       dropDownValue: value.selectedPaymentOption,
                       onChange: (onChange) => value.switchPartialPaymentWidget(onChange),

@@ -88,6 +88,7 @@ class _ProductListState extends State<ProductList> {
                       flex: 1,
                       child: Consumer<ProductViewModel>(builder: (__, provider, _) {
                         return CustomDropDown(
+                          dropDownHeight: 40,
                           borderRadius: 50,
                           textColor: AppColor.darkIndigo,
                           bgColor: AppColor.lightIndigo,
@@ -105,6 +106,7 @@ class _ProductListState extends State<ProductList> {
                       flex: 1,
                       child: Consumer<ProductViewModel>(builder: (__, provider, _) {
                         return CustomDropDown(
+                          dropDownHeight: 40,
                           borderRadius: 50,
                           textColor: AppColor.darkIndigo,
                           bgColor: AppColor.lightIndigo,

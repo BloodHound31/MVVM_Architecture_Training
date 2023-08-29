@@ -76,6 +76,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             children: [
                               Expanded(
                                 child: Consumer<CheckoutViewModel>(builder: (__, ckViewModel, _) => CustomDropDown(
+                                  dropDownHeight: 40,
                                   borderRadius: 5,
                                   textColor: AppColor.whiteColor,
                                   bgColor: AppColor.darkIndigo,

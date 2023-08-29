@@ -10,16 +10,18 @@ class CustomDropDown extends StatelessWidget {
 
   final double borderRadius;
 
+  final double dropDownHeight;
+
   final Color bgColor;
 
   final Color textColor;
 
-  const CustomDropDown({super.key, required this.list, required this.dropDownValue, required this.onChange, required this.borderRadius, required this.bgColor, required this.textColor});
+  const CustomDropDown({super.key, required this.list, required this.dropDownValue, required this.onChange, required this.borderRadius, required this.bgColor, required this.textColor, required this.dropDownHeight});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 30,
+      height: dropDownHeight,
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(borderRadius),

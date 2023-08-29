@@ -59,6 +59,7 @@ class _OrderListState extends State<OrderList> {
                     flex: 2,
                     child: Consumer<OrderListViewModel>(builder: (_, orderList, child) {
                       return CustomDropDown(
+                          dropDownHeight: 40,
                           list: orderList.statusList,
                           dropDownValue: orderList.selectedStatus,
                           onChange: (value) => orderList.sortByStatus(value),
