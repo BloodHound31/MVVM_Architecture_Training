@@ -44,11 +44,12 @@ class PaymentSummary extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(flex: 1, child: CustomWidgets.customText(text: 'PaymentMethod: ', fontSize: 18.0)),
+                Expanded(flex: 1, child: CustomWidgets.customText(text: 'Payment Method: ', fontSize: 18.0)),
                 Expanded(
                   flex: 1,
                   child: Consumer<PaymentSummaryViewModel>(builder: (context, paymentSummary, child) {
                     return CustomDropDown(
+                        icon: const SizedBox.shrink(),
                         dropDownHeight: 30,
                         list: paymentSummary.paymentList,
                         dropDownValue: paymentSummary.selectedMethod,
@@ -64,7 +65,7 @@ class PaymentSummary extends StatelessWidget {
 
           ],
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(height: 35,),
         Consumer<PaymentSummaryViewModel>(builder: (context, value, child) =>  value.paymentDetailsWidget,),
       ],
     );

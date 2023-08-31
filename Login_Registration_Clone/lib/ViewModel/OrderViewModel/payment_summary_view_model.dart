@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PartialPayment/HalfCashOnly.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/bank_payment.dart';
 import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/cash_only.dart';
+import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/credit_payment.dart';
+import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/neft_payment.dart';
+import 'package:login_registration_clone/Resources/CustomWidgets/OrderList/PaymentOptions/part_payment.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/order_summary_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../Resources/CustomWidgets/OrderList/PartialPayment/CashChequePartial.dart';
-import '../../Resources/CustomWidgets/OrderList/PaymentOptions/partial_payment.dart';
+//import '../../Resources/CustomWidgets/OrderList/PaymentOptions/partial_payment.dart';
 
 class PaymentSummaryViewModel with ChangeNotifier{
 
 
-  final List<String> _paymentList = ['Cash', 'Cheque', 'Partial Payment', 'Credit Note'];
+  final List<String> _paymentList = ['Cash', 'Cheque', 'NEFT', 'Credit', 'Part Payment'];
 
   String? _selectedMethod;
   Widget _paymentDetailsWidget = Container();
@@ -62,11 +65,14 @@ class PaymentSummaryViewModel with ChangeNotifier{
     case 'Cheque':
     _paymentDetailsWidget = const SizedBox(width: double.infinity, child: BankPayment());
     break;
-    case 'Partial Payment':
-    _paymentDetailsWidget =  const PartialPayment();
+    case 'NEFT':
+    _paymentDetailsWidget = const SizedBox(width: double.infinity, child: NEFTPayment());
     break;
-    case 'Credit Note':
-    _paymentDetailsWidget = Container();
+    case 'Part Payment':
+    _paymentDetailsWidget =  const PartPayment();
+    break;
+    case 'Credit':
+    _paymentDetailsWidget = const CreditPayment();
     break;
     default:
     _paymentDetailsWidget; // Default case

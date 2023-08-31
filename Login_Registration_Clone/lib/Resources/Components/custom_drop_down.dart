@@ -16,7 +16,9 @@ class CustomDropDown extends StatelessWidget {
 
   final Color textColor;
 
-  const CustomDropDown({super.key, required this.list, required this.dropDownValue, required this.onChange, required this.borderRadius, required this.bgColor, required this.textColor, required this.dropDownHeight});
+  final Widget? icon;
+
+  const CustomDropDown({super.key, required this.list, required this.dropDownValue, required this.onChange, required this.borderRadius, required this.bgColor, required this.textColor, required this.dropDownHeight, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,8 @@ class CustomDropDown extends StatelessWidget {
         child: DropdownButton<dynamic>(
           hint: const Text('Select Payment Method', style: TextStyle(color: AppColor.propsColor),),
           value: dropDownValue,
-          icon: const SizedBox.shrink(),
+          icon: icon,
           isExpanded: true,
-          elevation: 14,
           style: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.bold,),
           alignment: Alignment.center,
           dropdownColor: bgColor,

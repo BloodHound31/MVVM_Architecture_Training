@@ -59,6 +59,7 @@ class _OrderListState extends State<OrderList> {
                     flex: 2,
                     child: Consumer<OrderListViewModel>(builder: (_, orderList, child) {
                       return CustomDropDown(
+                          icon: const SizedBox.shrink(),
                           dropDownHeight: 40,
                           list: orderList.statusList,
                           dropDownValue: orderList.selectedStatus,

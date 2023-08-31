@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_registration_clone/Resources/Components/custom_drop_down.dart';
+import 'package:login_registration_clone/Resources/CustomWidgets/custom_widgets.dart';
 import 'package:login_registration_clone/Resources/colors.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/payment_summary_view_model.dart';
 import 'package:provider/provider.dart';
@@ -20,19 +21,23 @@ class _BankPaymentState extends State<BankPayment> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Expanded(flex: 1,child:CustomWidgets.customText(text: 'Bank Name', fontSize: 17)),
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 5),
                 child: Consumer<PaymentSummaryViewModel>(builder: (context, bankProvider, child) {
                   return CustomDropDown(
-                      dropDownHeight: 40,
+                      icon: const Icon(Icons.arrow_drop_down, size: 30, color: AppColor.propsColor,) ,
+                      dropDownHeight: 30,
                       list: bankProvider.bankList,
                       dropDownValue: bankProvider.selectedBank,
                       onChange: (onChange) => bankProvider.onToggleChange(onChange),
-                      borderRadius: 5,
-                      bgColor: AppColor.darkIndigo,
-                      textColor: AppColor.whiteColor);
+                      borderRadius: 10,
+                      bgColor: AppColor.searchBoxColor,
+                      textColor: AppColor.propsColor);
                 }),
               ),
             ),
@@ -40,20 +45,12 @@ class _BankPaymentState extends State<BankPayment> {
         ),
         Row(
           children: [
+            Expanded(flex: 1,child: CustomWidgets.customText(text: 'Cheque No.', fontSize: 17)),
             Expanded(
+              flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(top: 5),
-                child: TextField(
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                      label: const Text('Cheque Number'),
-                      fillColor: const Color(0xFFFFFFFF),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )
-                  ),
-                ),
+                child: CustomWidgets.chequeNumberField(textField: ''),
               ),
             ),
           ],
@@ -63,79 +60,31 @@ class _BankPaymentState extends State<BankPayment> {
           children: [
             Expanded(
               flex: 1,
-              child: ElevatedButton(
-                onPressed: (){
-                  paymentSummaryViewModel.changeDate(context: context);
-                },
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF293770))
-                ),
-                child: const Text(
-                  'Pick Date',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              child: CustomWidgets.customText(text: 'Cheque Date', fontSize: 17),
             ),
             Expanded(
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Consumer<PaymentSummaryViewModel>(builder: (context, bankProvider, child) {
-                  return Text(
-                    '${bankProvider.selectedDate.day}-${bankProvider.selectedDate.month}-${bankProvider.selectedDate.year}',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color(0xFF293770),
-                    ),
-                  );
-                }),
+                child: Selector<PaymentSummaryViewModel, DateTime>(
+                    selector: (_, date) => date.selectedDate,
+                    builder: (_, bankProvider, __) {
+                      return CustomWidgets.dateBox(
+                          text: '${bankProvider.day}-${bankProvider.month}-${bankProvider.year}',
+                          onPress: (){
+                            paymentSummaryViewModel.changeDate(context: context);
+                          },
+                      );
+                    })
               ),
             )
           ],
         ),
-        const SizedBox(height: 5,),
+        const SizedBox(height: 50,),
         Row(
           children: [
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: TextField(
-                  decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                      label: const Text('Name'),
-                      fillColor: const Color(0xFFFFFFFF),
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: (){},
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF293770))
-                ),
-                child: const Text(
-                  'Submit',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              child: CustomWidgets.customElevatedButton(onPress: (){}, text: 'Submit', borderRadius: 10, height: 5),
             ),
           ],
         )

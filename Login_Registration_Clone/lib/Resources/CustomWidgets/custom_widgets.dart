@@ -22,7 +22,6 @@ class CustomWidgets{
         style: const TextStyle(color: AppColor.blackColor),
         obscureText: isObsurce,
         decoration: InputDecoration(
-
             contentPadding:  const EdgeInsets.symmetric(vertical: 10.0),
             prefixIconColor: color,
             prefixIcon: Padding(
@@ -42,10 +41,79 @@ class CustomWidgets{
   }
 
 
-  static Widget customElevatedButton({required VoidCallback onPress, double borderRadius = 60, color = AppColor.propsColor, text = 'Submit', bool loading = false}){
+  static Widget chequeNumberField({textField, Widget suffixIcon = const SizedBox.shrink()}){
+    return Container(
+      height: 30,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade300),
+        color: AppColor.searchBoxColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: TextField(
+        keyboardType: TextInputType.number,
+        style: const TextStyle(fontSize: 14,color: AppColor.propsColor, fontFamily: 'JoannaSansNovaBook'),
+        decoration: InputDecoration(
+            suffixIcon: suffixIcon,
+            hintText: textField,
+            contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            fillColor: Colors.transparent,
+            filled: true,
+            hintStyle: const TextStyle(fontSize: 14,color: AppColor.propsColor, fontFamily: 'JoannaSansNovaBook'),
+            border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderRadius: BorderRadius.circular(10),
+            ),
+        ),
+      ),
+    );
+  }
+
+  static Widget dateBox({required String text, required VoidCallback onPress}){
+    return Container(
+      height: 30,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey.shade300),
+        color: AppColor.searchBoxColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(text,
+                style: const TextStyle(
+                fontSize: 14,
+                color: AppColor.propsColor,
+                fontFamily: 'JoannaSansNovaBook',
+                fontWeight: FontWeight.bold,
+              ),
+              ),
+              InkWell(
+                onTap: onPress,
+                child: const Icon(
+                  Icons.calendar_month,
+                  color: AppColor.propsColor,
+                  size: 18,
+                ),
+              )
+            ]
+          ),
+        ),
+      ),
+    );
+  }
+
+
+  static Widget customElevatedButton({required VoidCallback onPress, double borderRadius = 60, color = AppColor.propsColor, text = 'Submit', bool loading = false, double height = 9.0}){
     return ElevatedButton(
       style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 9.0, horizontal: 70)),
+        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: height, horizontal: 70)),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
         )),
