@@ -3,6 +3,7 @@ import 'package:login_registration_clone/Utils/Routes/routes.dart';
 import 'package:login_registration_clone/Utils/Routes/routes_name.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/order_summary_view_model.dart';
 import 'package:login_registration_clone/ViewModel/OrderViewModel/order_view_model.dart';
+import 'package:login_registration_clone/ViewModel/OrderViewModel/user_list_view_model.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/CheckoutViewModel.dart';
 import 'package:login_registration_clone/ViewModel/ProductsViewModel/Products_ViewModel.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,8 @@ void main() {
         ChangeNotifierProvider(create: (BuildContext context) => CheckoutViewModel()),
         ChangeNotifierProvider(create: (BuildContext context) => OrderListViewModel()),
         ChangeNotifierProvider(create: (BuildContext context) => OrderSummaryViewModel()),
-        ChangeNotifierProvider(create: (BuildContext context) => PaymentSummaryViewModel())
+        ChangeNotifierProvider(create: (BuildContext context) => PaymentSummaryViewModel()),
+        ChangeNotifierProvider(create: (BuildContext context) => UserListViewModel())
       ],
     child: const MaterialApp(
       debugShowCheckedModeBanner: false,

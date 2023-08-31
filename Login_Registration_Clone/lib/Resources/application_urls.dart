@@ -14,6 +14,7 @@ class ApplicationUrls{
 
   static var createBillEndPoint = '$userCreateEndPoint/$userName/Bill';
 
+
   static var userName;
 
   static void setUsername(var name){

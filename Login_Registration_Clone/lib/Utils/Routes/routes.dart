@@ -4,12 +4,15 @@ import 'package:login_registration_clone/View/Comman%20View/loading_splash_scree
 import 'package:login_registration_clone/View/Login_SignUp_View/Home_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Login_Page.dart';
 import 'package:login_registration_clone/View/Login_SignUp_View/Registration_Page.dart';
+import 'package:login_registration_clone/View/OrderView/loader_summary_view.dart';
 import 'package:login_registration_clone/View/OrderView/order_summary_view.dart';
+import 'package:login_registration_clone/View/OrderView/vehicle_summary_view.dart';
 import 'package:login_registration_clone/View/ProductsView/CheckOutPageView.dart';
 import 'package:login_registration_clone/View/ProductsView/ProductsListPage.dart';
 
 import '../../View/Login_SignUp_View/Password_Change.dart';
 import '../../View/OrderView/order_list_view.dart';
+import '../../View/OrderView/user_list_view.dart';
 import '../../View/ProductsView/CartPageView.dart';
 
 class Routes{
@@ -38,6 +41,12 @@ class Routes{
         return MaterialPageRoute(builder: (BuildContext context) => const OrderSummaryView());
       case RouteNames.loadingRoute:
         return MaterialPageRoute(builder: (BuildContext context) => const LoadingState());
+      case RouteNames.vehicleSummaryRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const VehicleSummary());
+      case RouteNames.loaderSummaryRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const LoaderSummary());
+      case RouteNames.userListRoute:
+        return MaterialPageRoute(builder: (BuildContext context) => const UserListView());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(

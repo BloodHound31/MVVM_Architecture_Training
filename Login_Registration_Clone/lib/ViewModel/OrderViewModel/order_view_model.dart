@@ -3,6 +3,8 @@ import 'package:login_registration_clone/Model/OrdersModels/order_model.dart';
 
 import '../../Model/OrdersModels/OrderEntity/billing_address.dart';
 import '../../Model/OrdersModels/OrderEntity/product_details.dart';
+import '../../Resources/CustomWidgets/custom_widgets.dart';
+import '../../Utils/Routes/routes_name.dart';
 
 
 class OrderListViewModel with ChangeNotifier{
@@ -32,6 +34,10 @@ class OrderListViewModel with ChangeNotifier{
 
   final List<String> _statusList = ['All', 'Pending', 'Full Cancel', 'Delivered', 'PartialCancelled'];
 
+  final List<String> _menuList = ['User List', 'Loader Summary', 'Vehicle Summary', 'Refresh'];
+
+  List<PopupMenuItem<String>> _popupMenuItems = [];
+
   List<OrderModel> _filteredList = [];
 
   String _selectedStatus = '';
@@ -46,9 +52,17 @@ class OrderListViewModel with ChangeNotifier{
 
   List<String> get statusList => _statusList;
 
+  List<PopupMenuItem<String>> get popupMenuItems => _popupMenuItems ;
+
   OrderListViewModel(){
     _filteredList = _orderList;
     _selectedStatus = _statusList.first;
+    _popupMenuItems = _menuList.map((String item) {
+      return PopupMenuItem<String>(
+        value: item,
+        child: CustomWidgets.customText(text: item),
+      );
+    }).toList();
   }
 
 
@@ -110,6 +124,31 @@ class OrderListViewModel with ChangeNotifier{
         Text(_filteredList[index].orderStatus)
       ],
     );
+  }
+
+
+  void onChoice (String choice, BuildContext context) {
+    // Handle the selected menu choice
+
+    switch(choice){
+      case 'User List':
+        //Go to user list page
+      Navigator.pushNamed(context, RouteNames.userListRoute);
+        break;
+      case 'Loader Summary':
+      Navigator.pushNamed(context, RouteNames.loaderSummaryRoute);
+        break;
+      case 'Vehicle Summary':
+      Navigator.pushNamed(context, RouteNames.vehicleSummaryRoute);
+        break;
+      case 'Refresh':
+        //Nothing
+        break;
+      default:
+        //Nothing
+        break;
+    }
+
   }
 
 }

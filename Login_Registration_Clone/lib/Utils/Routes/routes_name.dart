@@ -19,4 +19,10 @@ class RouteNames{
   static const String orderSummaryRoute = 'OrderSummary';
 
   static const String loadingRoute = 'Loading';
+
+  static const String vehicleSummaryRoute = 'Vehicle Summary';
+
+  static const String loaderSummaryRoute = 'Loader Summary';
+
+  static const String userListRoute = 'User List';
 }
